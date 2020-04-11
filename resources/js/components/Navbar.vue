@@ -10,16 +10,17 @@
     <ul class="navbar-nav mr-auto">
       
       <li class="nav-item">
-        <a class="nav-link" href="#">Home</a>
+		    <router-link to="/"class="nav-link">Home</router-link>
+
       </li>
 	  <li class="nav-item">
-        <a class="nav-link" href="#">welcome</a>
+		    <router-link to="/welcome"class="nav-link">Welcome</router-link>
       </li>
 	   <li class="nav-item">
-        <a class="nav-link" href="#">Login</a>
+		    <router-link to="/login"class="nav-link">Login</router-link>
       </li>
 	  <li class="nav-item">
-        <a class="nav-link" href="#">Register</a>
+		    <router-link to="/register"class="nav-link">Register</router-link>
       </li>
 	</ul>
     <form class="form-inline my-2 my-lg-0">

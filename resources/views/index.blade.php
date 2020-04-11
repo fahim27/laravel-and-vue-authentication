@@ -13,7 +13,8 @@
   <body>
      <div id="app">
 	 <Navbar></Navbar>
-	 <Home></Home>
+	  <router-view></router-view>
+
 	 </div>
 
 	

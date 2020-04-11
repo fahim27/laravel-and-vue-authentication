@@ -7,6 +7,10 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+
+Vue.use(VueRouter)
 
 /**
  * The following block of code may be used to automatically register your
@@ -21,7 +25,25 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('Navbar', require('./components/Navbar.vue').default);
-Vue.component('Home', require('./components/Home.vue').default);
+let Home=Vue.component('Home', require('./components/Home.vue').default);
+let Welcome=Vue.component('Welcome', require('./components/Welcome.vue').default);
+let Login=Vue.component('Login', require('./components/Login.vue').default);
+let Register=Vue.component('Register', require('./components/Register.vue').default);
+
+
+const routes = [
+  { path: '/', component: Home },
+  { path: '/welcome', component: Welcome },
+  { path: '/login', component: Login },
+  { path: '/register', component: Register }
+]
+
+const router = new VueRouter({
+	routes,
+	mode:"history"
+	
+})
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -31,4 +53,5 @@ Vue.component('Home', require('./components/Home.vue').default);
 
 const app = new Vue({
     el: '#app',
+	router
 });
