@@ -2,7 +2,7 @@
 <div>
 
 <Navbar :app="this"></Navbar>
-<router-view></router-view>
+<router-view :app="this"></router-view>
 
 </div>
 
@@ -19,7 +19,7 @@ import Navbar from "./Navbar.vue";
  },
 		data(){
 			return{
-				user:"fahim"
+				user:null
 			}
 		},
         mounted() {

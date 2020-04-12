@@ -13,15 +13,12 @@
 		    <router-link to="/"class="nav-link">Home</router-link>
 
       </li>
-	  <li class="nav-item">
+	  <li class="nav-item"v-if="app.user">
 		    <router-link to="/welcome"class="nav-link">welcome</router-link>
       </li>
 	   <li class="nav-item">
-		    <router-link to="/login"class="nav-link">Login</router-link>
       </li>
-	  <li class="nav-item">
-		    <router-link to="/register"class="nav-link">Register</router-link>
-      </li>
+	 
 	</ul>
 	
 	
@@ -29,13 +26,15 @@
   
   <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-  {{app.user ? app.user.name:"Account"}}
+  {{app.user ?"DashBoard":"Account"}}
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#" v-if="app.user">Logout</a>
+    <a class="dropdown-item" href="#" v-if="app.user" @click="logout">Logout</a>
 	<div v-if="!app.user">
-	 <a class="dropdown-item" href="#">Login</a>
-    <a class="dropdown-item" href="#">Register</a>
+	 
+	 		    <router-link to="/login"class="dropdown-item">Login</router-link>
+	 		    <router-link to="/register"class="dropdown-item">Register</router-link>
+
 	</div>
    
   </div>
@@ -51,7 +50,20 @@
 	
 		name:"Navbar",
 		props: ['app'],
+		methods:{
+		  logout(){
+			axios.post('/logout')
+			.then((resp)=>{
+				this.app.user=null
+				this.$route.push('/login')
+			})
+			.catch((error)=>{
+			  console.log(error)
+			})
+		  }
 		
+		
+		},
         mounted() {
             console.log('Component mounted.')
         }

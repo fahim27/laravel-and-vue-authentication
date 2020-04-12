@@ -5,7 +5,7 @@
     <div class="col-lg-8 mt-5">
       <div class="card">
 		<div class="card-header">
-		   <h2 class="text-center">Welcome Laravel And vue js authentication system</h2>
+		   <h2 class="text-center">Welcome & you are login</h2>
 		</div>
 		<div class="card-body">
 		<p>

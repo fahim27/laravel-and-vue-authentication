@@ -36,6 +36,8 @@
 		
 	</div>
 	
+	
+	
 
 
 </div>
@@ -68,12 +70,13 @@
 		  axios.post('/register',this.$data.dataReg)
 		  .then((resp)=>{
 		  this.app.user=resp.data;
+		  this.$route.push('/welcome');
+		  
 		  })
 		  .catch((error)=>{
-		   console.log(this.app)
 		   
 		   this.errors=error.response.data.errors;
-		   console.log()
+		   
 		  
 		  })
 		  }
