@@ -14,7 +14,7 @@
 
       </li>
 	  <li class="nav-item">
-		    <router-link to="/welcome"class="nav-link">Welcome</router-link>
+		    <router-link to="/welcome"class="nav-link">welcome</router-link>
       </li>
 	   <li class="nav-item">
 		    <router-link to="/login"class="nav-link">Login</router-link>
@@ -23,10 +23,37 @@
 		    <router-link to="/register"class="nav-link">Register</router-link>
       </li>
 	</ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+	
+	
   </div>
+  
+  <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  {{app.user ? app.user.name:"Account"}}
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#" v-if="app.user">Logout</a>
+	<div v-if="!app.user">
+	 <a class="dropdown-item" href="#">Login</a>
+    <a class="dropdown-item" href="#">Register</a>
+	</div>
+   
+  </div>
+</div>
 </nav>
+
+
+
 </template>
+
+<script>
+    export default {
+	
+		name:"Navbar",
+		props: ['app'],
+		
+        mounted() {
+            console.log('Component mounted.')
+        }
+    }
+</script>

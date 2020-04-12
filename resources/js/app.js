@@ -25,6 +25,7 @@ Vue.use(VueRouter)
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('Navbar', require('./components/Navbar.vue').default);
+Vue.component('App', require('./components/App.vue').default);
 let Home=Vue.component('Home', require('./components/Home.vue').default);
 let Welcome=Vue.component('Welcome', require('./components/Welcome.vue').default);
 let Login=Vue.component('Login', require('./components/Login.vue').default);
